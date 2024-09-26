@@ -1,0 +1,60 @@
+/* Estilos del panel lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Fuera de la pantalla */
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    transition: left 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para que el perfil de usuario esté al fondo */
+    padding: 20px;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Cuando se abre, se desliza hacia la vista */
+  }
+  
+  /* Estilos para el logo */
+  .app-logo img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilos para los enlaces de navegación */
+  .nav-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links ul li {
+    margin: 20px 0;
+  }
+  
+  .nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Estilos para el perfil de usuario */
+  .user-profile {
+    text-align: center;
+    margin-top: auto; /* Hace que el perfil esté al final del panel */
+  }
+  
+  .user-profile p {
+    margin: 10px 0;
+  }
+  
+  .user-profile a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
