@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from './Components/Main'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <Main/>
+    </div>
   )
 }
 
