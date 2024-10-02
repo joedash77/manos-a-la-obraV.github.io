@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/organisms/header/header.jsx'
+import Header from './components/organisms/header/Header'
 
 function App() {
   return (
