@@ -3,9 +3,7 @@ import Title from '../../atoms/title/title.jsx'
 import HamburguerMenu from '../../molecules/hamburgerMenu/hamburguerMenu.jsx'
 import './styles.css';
 
-
-
-export default function header() {
+export default function Header() {
   return (
     <div className='header'>
       <HamburguerMenu/>

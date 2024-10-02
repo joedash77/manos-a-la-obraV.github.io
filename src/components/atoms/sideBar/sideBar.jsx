@@ -6,7 +6,7 @@ export default function sideBar({ isOpen, toggleSidebar }) {
   return (
       <div className={isOpen ? 'sidebar open' : 'sidebar'}>
         <div className="app-logo">
-          <img src={AppLogo} alt="App Logo" />
+          
         </div>
 
         {/* Sección Nav */}

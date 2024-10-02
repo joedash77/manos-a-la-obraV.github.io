@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SideBar from '../../atoms/sideBar/sideBar';
-import './styles.css';
+import './styles.css'
 
 export default function hamburguerMenu() {
   

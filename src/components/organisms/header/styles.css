@@ -16,3 +16,7 @@
   .hamburger-icon {
     cursor: pointer;
   }
+
+  .main{
+    background-color: aqua;
+}
