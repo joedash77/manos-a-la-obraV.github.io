@@ -4,9 +4,9 @@ import Header from './organisms/header/Header';
 
 function Main() {
   return (
-    <div className='main'>
-          <Header />
-    </div>
+    <>
+        <Header title='Menu'/>
+    </>
   )
 }
 

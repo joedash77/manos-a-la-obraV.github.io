@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: space-between; /* Para que el perfil de usuario esté al fondo */
     padding: 20px;
+    overflow-y: auto;
   }
   
   .sidebar.open {
@@ -28,18 +29,25 @@
   /* Estilos para los enlaces de navegación */
   .nav-links ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
   }
   
   .nav-links ul li {
-    margin: 20px 0;
+    margin: 50px 0;
   }
   
   .nav-links ul li a {
     color: white;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 2rem;
+  }
+
+  .nav-links ul li a:hover {
+    background-color: white;
+    color:#333;
   }
   
   /* Estilos para el perfil de usuario */
@@ -58,3 +66,24 @@
     font-weight: bold;
   }
   
+  .img{
+    justify-content: center;
+    height: auto;
+    width: 70px;
+}
+
+.button{
+  margin-left: 39px;
+  display: inline-flex;
+  background-color: #333;
+  border: 2px solid black;
+  border-radius: 5px;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.button:hover{
+  background-color: white;
+}

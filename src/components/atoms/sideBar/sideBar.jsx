@@ -1,27 +1,27 @@
 import React from 'react'
 import AppLogo from '../appLogo/appLogo.jsx'
+import { Link } from 'react-router-dom'
 import './styles.css'
+import appLogo from '../appLogo/appLogo.jsx'
+import BotonVolver from './BotonVolver.jsx'
 
-export default function sideBar({ isOpen, toggleSidebar }) {
+export default function sideBar({ isOpen, toggleSidebar, level }) {
   return (
       <div className={isOpen ? 'sidebar open' : 'sidebar'}>
-        <div className="app-logo">
-          
-        </div>
-
+        <BotonVolver level={level} />
         {/* Sección Nav */}
         <nav className="nav-links">
           <ul>
-            <li><a href="#home" onClick={toggleSidebar}>Home</a></li>
-            <li><a href="#projects" onClick={toggleSidebar}>My Projects</a></li>
-            <li><a href="#stories" onClick={toggleSidebar}>My Stories</a></li>
+            <li><Link to="/" onClick={toggleSidebar}>Home</Link></li>
+            <li><Link to="/my-projects" onClick={toggleSidebar}>My Projects</Link></li>
+            <li><Link to="/my-projects/epic/story" onClick={toggleSidebar}>My Stories</Link></li>
           </ul>
         </nav>
 
         {/* User Profile Link */}
         <div className="user-profile">
+          <Link to="/Settings" onClick={toggleSidebar}>Configuración de usuario</Link>
           <p>Usuario: John Doe</p>
-          <a href="#user-settings" onClick={toggleSidebar}>Configuración de usuario</a>
         </div>
       </div>
   )

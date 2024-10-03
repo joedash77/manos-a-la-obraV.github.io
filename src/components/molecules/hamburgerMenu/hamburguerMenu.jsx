@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SideBar from '../../atoms/sideBar/sideBar';
 import './styles.css'
 
-export default function hamburguerMenu() {
+export default function hamburguerMenu({level}) {
   
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function hamburguerMenu() {
       </div>
 
       {/* Sidebar */}
-      <SideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <SideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} level={level}/>
       </div>
     );
 }
