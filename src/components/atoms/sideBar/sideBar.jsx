@@ -12,7 +12,7 @@ export default function sideBar({ isOpen, toggleSidebar, level }) {
         {/* Sección Nav */}
         <nav className="nav-links">
           <ul>
-            <li><Link to="/" onClick={toggleSidebar}>Home</Link></li>
+            <li><Link to="/Home" onClick={toggleSidebar}>Home</Link></li>
             <li><Link to="/my-projects" onClick={toggleSidebar}>My Projects</Link></li>
             <li><Link to="/my-projects/epic/story" onClick={toggleSidebar}>My Stories</Link></li>
           </ul>

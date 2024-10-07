@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../components/Main";
-import My_Projects from "../components/paginas/My_Projects";
+import MyProjects from "../components/paginas/MyProjects";
 import Epic from "../components/paginas/Epic";
 import Story from "../components/paginas/Story";
 import Settings from "../components/paginas/Settings";
+import MyProjectsDetails from "../components/paginas/MyProjectsDetails";
+import EpicDetails from "../components/paginas/EpicDetails";
 
 export const router = createBrowserRouter([
     {
@@ -11,20 +13,24 @@ export const router = createBrowserRouter([
         element: <Main />
     },
     {
+        path: "/home",
+        element: <Main />
+    },
+    {
         path: "/my-projects",
-        element: <My_Projects/>
+        element: <MyProjects/>
     },
     {
         path: "/my-projects/:projectId",
-        element: <My_Projects/>
+        element: <MyProjectsDetails/>
     },
     {
         path: "/my-projects/epic",
         element: <Epic/>
     },
     {
-        path: "/my-projects/epic/:epicId",
-        element: <Epic/>
+        path: "/my-projects/:projectId/epic/:epicId",
+        element: <EpicDetails/>
     },
     {
         path: "/my-projects/epic/story",
