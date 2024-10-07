@@ -25,10 +25,6 @@ export const router = createBrowserRouter([
         element: <MyProjectsDetails/>
     },
     {
-        path: "/my-projects/epic",
-        element: <Epic/>
-    },
-    {
         path: "/my-projects/:projectId/epic/:epicId",
         element: <EpicDetails/>
     },
