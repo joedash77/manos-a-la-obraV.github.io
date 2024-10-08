@@ -5,25 +5,43 @@ export const dataList = [
       description: 'Description for Project Alpha',
       epics: [
         { 
-            id: 101, 
+            id: 1, 
             name: 'Epic 1 for Alpha Project',  
             description: 'Description for Epic Alpha',
-            Story: [
+            stories: [
                 {
-                    id: 201,
-                    name: 'Story 1 for Alpha Epic',
-                    description: 'Description for story Alpha',
+                    id: 1,
+                    name: 'Story 1 for Alpha Epic 1',
+                    description: 'Description for story Alpha 1',
                     task: [
                     {
-                        id: 301,
+                        id: 1,
                         name: 'Task 1 for Alpha Story',
-                        description: 'Description for task Alpha',
+                        description: 'Description for task Alpha 1',
                     }
                     ]
                 }
             ]
         },
-        { id: 102, name: 'Epic 2 for Alpha' }
+        { 
+            id: 2, 
+            name: 'Epic 2 for Alpha Project',
+            description: 'Description for Epic Alpha 2',
+            stories: [
+                {
+                    id: 2,
+                    name: 'Story 1 for Alpha Epic 2',
+                    description: 'Description for story Alpha 2',
+                    task: [
+                    {
+                        id: 2,
+                        name: 'Task 1 for Alpha Story 2',
+                        description: 'Description for task Alpha 2',
+                    }
+                    ]
+                }
+            ]
+        }
       ]
     },
     {
@@ -32,18 +50,18 @@ export const dataList = [
       description: 'Description for Project Beta',
       epics: [
         { 
-            id: 201, 
+            id: 1, 
             name: 'Epic 1 for Beta Project',
-            Story: [
+            stories: [
                 {
-                    id: 201,
-                    name: 'Story 1 for Alpha Epic',
-                    description: 'Description for story Beta',
+                    id: 1,
+                    name: 'Story 1 for Beta Epic 1',
+                    description: 'Description for story Beta 1',
                     task: [
                     {
-                        id: 301,
-                        name: 'Task 1 for Beta Story',
-                        description: 'Description for task Beta',
+                        id: 1,
+                        name: 'Task 1 for Beta Story 1',
+                        description: 'Description for task Beta 1',
                     }
                     ]
                 }

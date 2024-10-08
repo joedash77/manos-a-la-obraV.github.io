@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../components/Main";
 import MyProjects from "../components/paginas/MyProjects";
-import Epic from "../components/paginas/Epic";
 import Story from "../components/paginas/Story";
 import Settings from "../components/paginas/Settings";
 import MyProjectsDetails from "../components/paginas/MyProjectsDetails";
 import EpicDetails from "../components/paginas/EpicDetails";
+import StoryDetails from "../components/paginas/StoryDetails";
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/my-projects/:projectId/epic/:epicId/story/:storyId",
-        element: <Story/>
+        element: <StoryDetails/>
     },
     {
         path: "/Settings",

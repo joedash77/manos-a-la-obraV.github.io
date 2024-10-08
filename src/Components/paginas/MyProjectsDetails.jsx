@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { dataList } from '../../Data/data';
 import { Link } from 'react-router-dom';
+import Header from '../organisms/header/Header';
 
 function MyProjectsDetails() {
     const { projectId } = useParams();
@@ -18,16 +19,14 @@ function MyProjectsDetails() {
 
   return (
       <div>
+        <Header title={`Proyecto: ${project.name}`} level = {2}/>
         <h1>{project.name}</h1>
         <h1>{project.description}</h1>
-
         <h2>Epics</h2>
         {project.epics.map((epic) => (
-            <ul>
-                <li key={epic.id}> 
-                    <Link to = {`/my-projects/${project.id}/epic/${epic.id}`} >{epic.name}</Link>
-                </li>
-            </ul>
+            <li key={epic.id}> 
+                <Link to = {`/my-projects/${project.id}/epic/${epic.id}`} >{epic.name}</Link>
+            </li>
         ))}
     </div>
   )
