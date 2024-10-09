@@ -11,26 +11,28 @@ function EpicDetails() {
     const epics = project.epics.find(epic => epic.id == parseInt(epicId));
     
     return (
-      <div className="epica-container">
-        <Header title={`Epica: ${epics.name}`} level={2} />
+      <>
         
-        <h1 className="epica-title">{epics.name}</h1>
-        <p className="epica-description">{epics.description}</p>
-  
-        <h2 className="epics-subtitle">Historias</h2>
-        <ul className="epics-list">
-          {epics.stories.map((story) => (
-            <li key={story.id} className="epic-story-item">
-              <Link
-                to={`/my-projects/${project.id}/epic/${epics.id}/story/${story.id}`}
-                className="epic-story-link"
-              >
-                {story.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+          <Header title={`Epica: ${epics.name}`} level={2} />
+          <div className="epica-container">
+          <h1 className="epica-title">{epics.name}</h1>
+          <p className="epica-description">{epics.description}</p>
+    
+          <h2 className="epics-subtitle">Historias</h2>
+          <ul className="epics-list">
+            {epics.stories.map((story) => (
+              <li key={story.id} className="epic-story-item">
+                <Link
+                  to={`/my-projects/${project.id}/epic/${epics.id}/story/${story.id}`}
+                  className="epic-story-link"
+                >
+                  {story.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
     );
   }
 export default EpicDetails;

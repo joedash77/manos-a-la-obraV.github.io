@@ -4,7 +4,7 @@ import './stylesBoton.css';
 function BotonCerrar({ closeSidebar }) {
     return (
         <button onClick={closeSidebar} className='button'>
-            &#10006; {/* Código de la "X" para cerrar */}
+            <i className="fa fa-times" aria-hidden="true"></i>
         </button>
     );
 }
