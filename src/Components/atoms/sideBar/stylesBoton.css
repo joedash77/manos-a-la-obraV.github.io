@@ -12,7 +12,7 @@
 }
 
 .button:hover {
-    box-shadow: var(--shadow-elevation-medium); /* Aumentar la sombra al pasar el cursor */
+    box-shadow: var(--shadow-elevation-low); /* Aumentar la sombra al pasar el cursor */
     background-color: #e9d8a6; /* Agregar color de fondo suave al hacer hover */
 }
 
