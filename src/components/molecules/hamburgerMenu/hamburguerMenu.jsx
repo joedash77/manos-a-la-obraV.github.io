@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SideBar from '../../atoms/sideBar/sideBar';
 import './styles.css'
 
-export default function hamburguerMenu({level}) {
+export default function HamburguerMenu({ level }) {
   
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -10,8 +10,8 @@ export default function hamburguerMenu({level}) {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-    return (
-      <div>
+  return (
+    <div>
       <div className="hamburger-icon" onClick={toggleSidebar}>
         <div className={isSidebarOpen ? "line line1 open" : "line line1"}></div>
         <div className={isSidebarOpen ? "line line2 open" : "line line2"}></div>
@@ -19,9 +19,8 @@ export default function hamburguerMenu({level}) {
       </div>
 
       {/* Sidebar */}
-      <SideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} level={level}/>
-      </div>
-    );
+      <SideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} level={level} />
+    </div>
+  );
 }
-
   

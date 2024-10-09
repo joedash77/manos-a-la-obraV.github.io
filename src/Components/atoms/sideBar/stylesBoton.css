@@ -1,0 +1,26 @@
+.button {
+    background-color: transparent; /* Sin fondo para mantener el diseño minimalista */
+    border: px solid black; /* Borde negro */
+    border-radius: 90%; /* Hacer el botón circular */
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-elevation-low); /* Sombras suaves */
+    display: flex;
+    align-items: center; /* Centrar verticalmente el contenido */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+}
+
+.button:hover {
+    box-shadow: var(--shadow-elevation-medium); /* Aumentar la sombra al pasar el cursor */
+    background-color: #e9d8a6; /* Agregar color de fondo suave al hacer hover */
+}
+
+.button:active {
+    transform: scale(0.95); /* Hacer una pequeña escala cuando se hace clic */
+}
+
+.fa-arrow-left {
+    font-size: 20px; /* Ajustar el tamaño del icono */
+    color: black; /* Color del icono */
+}

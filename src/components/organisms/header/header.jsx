@@ -6,7 +6,7 @@ import './styles.css';
 export default function Header({title, level}) {
   return (
     <div className='header'>
-      <HamburguerMenu level={level}/>
+      <HamburguerMenu className="hamburger-menu" level={level}/>
       <Title title={title} />
     </div>
   )

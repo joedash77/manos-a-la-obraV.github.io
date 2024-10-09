@@ -1,0 +1,60 @@
+/* Lista de proyectos */
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+  background-color: #F5F5F5; /* Cambia el color según tu elección */
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Asegúrate de que la fuente sea consistente */
+}
+
+/* Cada proyecto individual */
+.project-item {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  padding: 10px; /* Reducir el padding para hacer el contenedor más pequeño */
+  max-width: 700px; /* Definir un ancho máximo para hacer el contenedor más pequeño */
+  margin: 10px auto; /* Centrar el contenedor horizontalmente */
+}
+
+/* Efecto hover para cada proyecto */
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo del enlace */
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Título del proyecto */
+.project-name {
+  font-size: 2rem; /* Aumentar el tamaño de la fuente */
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center; /* Centrar el título */
+}
+
+/* Descripción del proyecto */
+.project-description {
+  font-size: 1.2rem; /* Aumentar el tamaño de la fuente de la descripción */
+  color: #666;
+  margin: 0;
+  text-align: center; /* Centrar la descripción */
+}
+
+/* Efecto hover para el título del proyecto */
+.project-link:hover .project-name {
+  color: #007bff;
+}
