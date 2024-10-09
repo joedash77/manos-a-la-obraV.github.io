@@ -1,0 +1,90 @@
+/* Contenedor de la página de la historia */
+.story-page-container {
+    padding: 20px;
+    width: 700px;
+    margin: 0 auto; /* Centrar el contenedor en la página */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 150px;
+  }
+  
+  /* Contenedor interno de la historia */
+  .story-container {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  /* Título de la historia */
+  .story-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Descripción de la historia */
+  .story-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Subtítulo de las tareas */
+  .story-subtitle {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Lista de tareas */
+  .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Cada tarea individual */
+  .task-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Nombre de la tarea */
+  .task-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Descripción de la tarea */
+  .task-description {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .divider {
+    width: 100px;
+    height: 2px;
+    background-color: #007bff; /* Color de la línea */
+    margin: 10px auto;
+    border: none;
+  }
+  
+  /* Efecto hover para cada tarea */
+  .task-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .task-item:hover .task-name {
+    color: #007bff;
+  }

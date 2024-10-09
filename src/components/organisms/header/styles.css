@@ -6,9 +6,17 @@
   background-color: #ffffff; /* Fondo blanco sólo en el header */
   box-shadow: 0px 4px 10px rgba(247, 5, 5, 0.1); /* Sombra sutil */
   border-radius: 8px;
-  position: relative;
+  position: fixed; /* Fija el header en la parte superior de la pantalla */
+  top: 0; /* Posiciona el header en la parte superior */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000; /* Asegura que el header esté por encima del contenido */
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ajuste del body para evitar que el contenido quede detrás del Header */
+body {
+  padding-top: 80px; /* Espacio para el header fijo */
 }
 
 /* Alineación del menú hamburguesa a la izquierda */

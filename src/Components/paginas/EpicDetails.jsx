@@ -16,6 +16,7 @@ function EpicDetails() {
           <Header title={`Epica: ${epics.name}`} level={2} />
           <div className="epica-container">
           <h1 className="epica-title">{epics.name}</h1>
+          <hr className="divider" />
           <p className="epica-description">{epics.description}</p>
     
           <h2 className="epics-subtitle">Historias</h2>

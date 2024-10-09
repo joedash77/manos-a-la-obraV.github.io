@@ -1,10 +1,14 @@
 /* Estilos generales de la página */
 .epica-container {
-  padding: 20px;
-  background-color: #ffffff; /* Fondo blanco para el contenido */
-  border-radius: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  padding: 10px; /* Reducir el padding para hacer el contenedor más pequeño */
+  width: 700px; /* Definir un ancho máximo para hacer el contenedor más pequeño */
+  margin: 10px auto; /* Centrar el contenedor horizontalmente */
+  margin-top: 150px;
 }
 
 /* Título de la épica */
@@ -30,6 +34,14 @@
   color: #007bff;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  background-color: #007bff; /* Color de la línea */
+  margin: 10px auto;
+  border: none;
 }
 
 /* Lista de historias */
@@ -63,6 +75,10 @@
   display: block;
   text-align: center;
   font-weight: 600;
+}
+
+.epic-story-link:hover {
+  color: #007bff; /* Cambiar el color del enlace al pasar el cursor */
 }
 
 /* Efecto hover en cada historia */

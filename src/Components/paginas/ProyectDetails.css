@@ -1,85 +1,98 @@
-/* Contenedor principal del proyecto */
-.project-details-container {
-    padding: 20px;
-    background-color: #ffffff; 
-    border-radius: 8px;
-    box-shadow: var(--shadow-elevation-medium);
-    max-width: 800px;
-    margin: 0 auto;
-  }
+/* Contenedor principal que envuelve todos los componentes */
+.project-details-wrapper {
+
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  padding: 10px; /* Reducir el padding para hacer el contenedor más pequeño */
+  width: 700px; /* Definir un ancho máximo para hacer el contenedor más pequeño */
+  margin: 10px auto; /* Centrar el contenedor horizontalmente */
+  margin-top: 150px;
   
-  /* Información del proyecto */
-  .project-info {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Título del proyecto */
-  .project-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Descripción del proyecto */
-  .project-description {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  /* Título de la sección de Epics */
-  .epics-title {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: #444;
-  }
-  
-  /* Lista de Epics */
-  .epics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  /* Cada item en la lista de Epics */
-  .epic-item {
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Efecto hover sobre los Epics */
-  .epic-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Enlace dentro de cada Epic */
-  .epic-link {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.3rem;
-    display: block;
-    text-align: center;
-  }
-  
-  /* Mensaje si no hay Epics */
-  .no-epics-container {
-    text-align: center;
-    padding: 40px;
-  }
-  
-  .no-epics-message {
-    font-size: 1.5rem;
-    color: #666;
-    font-weight: 500;
-  }
-  
+}
+
+/* Lista de epics */
+.epics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada epic individual */
+.epic-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Efecto hover para cada epic */
+.epic-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo del enlace */
+.epic-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.epic-link:hover {
+  color: #007bff; /* Cambiar el color del enlace al pasar el cursor */
+}
+
+/* Título del proyecto */
+.project-name {
+  font-size: 2.5rem;
+  color: #333333;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  background-color: #007bff; /* Color de la línea */
+  margin: 10px auto;
+  border: none;
+}
+
+/* Descripción del proyecto */
+.project-description {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Título de la sección de Epics */
+.epics-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Mensaje si no hay Epics */
+.no-epics-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.no-epics-message {
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+}
