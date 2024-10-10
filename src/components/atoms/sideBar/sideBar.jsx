@@ -22,10 +22,10 @@ export default function SideBar({ isOpen, toggleSidebar, level }) {
                       <Link to="/Home" onClick={closeSidebar}>Home</Link>
                   </li>
                   <li>
-                      <Link to="/my-projects" onClick={closeSidebar}>My Projects</Link>
+                      <Link to="/projects" onClick={closeSidebar}>My Projects</Link>
                   </li>
                   <li>
-                      <Link to="/my-projects/epic/story" onClick={closeSidebar}>My Stories</Link>
+                      <Link to="/stories/" onClick={closeSidebar}>My Stories</Link>
                   </li>
               </ul>
           </nav>

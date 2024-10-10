@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { dataList } from '../../Data/data';
 import { Link } from 'react-router-dom';
 import Header from '../organisms/header/Header';
 import './StylesEpic.css';
 
 function EpicDetails() {
-    const { projectId, epicId } = useParams();
-    const project = dataList.find(p => p.id == parseInt(projectId));
-    const epics = project.epics.find(epic => epic.id == parseInt(epicId));
-    
+    const { epicId } = useParams();
+    const [epics, setEpics] = useState([]);
+    const [stories, setStories] = useState([]);
+
+    const header = {
+      'Content-Type': 'application/json',
+      'auth': localStorage.getItem('token')
+    }
+
+    useEffect(() => {
+      fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/epics/${epicId}`, 
+        {
+          method: 'GET',
+          headers: header
+        })
+      .then(respones => respones.json())
+      .then(data => setEpics(data.data))
+    }, []);
+
+    useEffect(() => {
+      fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/epics/${epicId}/stories`, {
+        method: 'GET',
+        headers: header
+      })
+      .then(response => response.json())
+      .then(data => setStories(data.data))
+    }, []);
+
     return (
       <>
-        
           <Header title={`Epica: ${epics.name}`} level={2} />
           <div className="epica-container">
           <h1 className="epica-title">{epics.name}</h1>
@@ -21,13 +43,14 @@ function EpicDetails() {
     
           <h2 className="epics-subtitle">Historias</h2>
           <ul className="epics-list">
-            {epics.stories.map((story) => (
-              <li key={story.id} className="epic-story-item">
+            {stories.map((story) => (
+              <li key={story._id} className="epic-story-item">
                 <Link
-                  to={`/my-projects/${project.id}/epic/${epics.id}/story/${story.id}`}
+                  to={`/stories/${story._id}/tasks`}
                   className="epic-story-link"
                 >
                   {story.name}
+                  {story.description}
                 </Link>
               </li>
             ))}
