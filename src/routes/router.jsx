@@ -6,6 +6,7 @@ import Settings from "../components/paginas/Settings";
 import MyProjectsDetails from "../components/paginas/MyProjectsDetails";
 import EpicDetails from "../components/paginas/EpicDetails";
 import StoryDetails from "../components/paginas/StoryDetails";
+import Login from "../components/paginas/Login";
 
 export const router = createBrowserRouter([
     {
@@ -17,27 +18,31 @@ export const router = createBrowserRouter([
         element: <Main />
     },
     {
-        path: "/my-projects",
+        path: "/projects",
         element: <MyProjects/>
     },
     {
-        path: "/my-projects/:projectId",
+        path: "/projects/:projectId/epics",
         element: <MyProjectsDetails/>
     },
     {
-        path: "/my-projects/:projectId/epic/:epicId",
+        path: "/epics/:epicId/stories",
         element: <EpicDetails/>
     },
     {
-        path: "/my-projects/epic/story",
+        path: "/stories/",
         element: <Story/>
     },
     {
-        path: "/my-projects/:projectId/epic/:epicId/story/:storyId",
+        path: "/stories/:storyId/tasks",
         element: <StoryDetails/>
     },
     {
         path: "/Settings",
         element: <Settings/>
+    },
+    {
+        path: "/login",
+        element: <Login/>
     }
 ])

@@ -1,24 +1,33 @@
 import React from 'react'
 import Header from '../organisms/header/Header'
-import { dataList } from '../../Data/data'
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import './StylesStory.css'
 
 function Story() {
-  const projectList = dataList.map(project => (
-    <div className="contenedor-lista" key={project.id}>
-      {project.epics.map(epic => (
-        <ul className="contenedor-story" key={epic.id}>
-          {epic.stories.map(story => (
-            <li className="historia" key={story.id}>
-              <Link to={`/my-projects/${project.id}/epic/${epic.id}/story/${story.id}`} className="story-link">
-                {story.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ))}
-    </div>
+  const [stories, setStories] = useState([]);
+
+  const header = {
+    'Content-Type': 'application/json',
+    'auth': localStorage.getItem('token')
+  }
+
+  useEffect(() => {
+    fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/stories', 
+      {
+        method: 'GET',
+        headers: header
+      })
+    .then(respones => respones.json())
+    .then(data => setStories(data.data))
+  }, []);
+  
+  const projectList = stories.map((stories) => (
+    <li key={stories._id} className="project-item">
+      <Link to={`/stories/${stories._id}/tasks`} className="project-link">
+        <h3 className="project-name">{stories.name}</h3>
+        <p className="project-description">{stories.description}</p>
+      </Link>
+    </li>
   ));
 
   return (
