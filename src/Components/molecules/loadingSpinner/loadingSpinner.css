@@ -1,0 +1,32 @@
+.custom-loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* O cualquier altura acorde al diseño */
+    background-color: var(--background-color); /* Si usas variables CSS o un color base */
+  }
+  
+  .custom-spinner {
+    border: 4px solid #ffff; /* Color de fondo del spinner */
+    border-top: 4px solid #000000; /* Color primario de la página */
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  .custom-loading-message {
+    margin-top: 10px;
+    color: #000000; /* Color primario de la página */
+    font-size: 18px; /* Tamaño de texto acorde a la página */
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif; /* Usando la misma tipografía que el resto del sitio */
+    text-align: center;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

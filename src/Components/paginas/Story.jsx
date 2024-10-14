@@ -1,41 +1,26 @@
 import React from 'react'
 import Header from '../organisms/header/Header'
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { useFetchStories } from '../../utils/apiCalls'
+import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
+import Stories from '../molecules/story/story'
+
 
 function Story() {
-  const [stories, setStories] = useState([]);
+  const { stories, error: storiesError } = useFetchStories(); // Hook para obtener historias
 
-  const header = {
-    'Content-Type': 'application/json',
-    'auth': localStorage.getItem('token')
+  if (storiesError) {
+    return <div>Error: {storiesError.message}</div>;
   }
 
-  useEffect(() => {
-    fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/stories', 
-      {
-        method: 'GET',
-        headers: header
-      })
-    .then(respones => respones.json())
-    .then(data => setStories(data.data))
-  }, []);
-  
-  const projectList = stories.map((stories) => (
-    <li key={stories._id} className="project-item">
-      <Link to={`/stories/${stories._id}/tasks`} className="project-link">
-        <h3 className="project-name">{stories.name}</h3>
-        <p className="project-description">{stories.description}</p>
-      </Link>
-    </li>
-  ));
+  const a = stories.length - 1;
+  if (!stories[a]) {
+    return <LoadingSpinner message="Cargando historias..." />;
+  }
 
   return (
     <>
       <Header title='Mis historias' level={2} />
-      <div className="story-list">
-        {projectList}
-      </div>
+      <Stories stories={stories}/>
     </>
   );
 }

@@ -7,42 +7,75 @@ import MyProjectsDetails from "../components/paginas/MyProjectsDetails";
 import EpicDetails from "../components/paginas/EpicDetails";
 import StoryDetails from "../components/paginas/StoryDetails";
 import Login from "../components/paginas/Login";
+import PrivateRoute from "./PrivateRoute";  // Importa el componente de rutas privadas
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Main />
+        element: (
+            <PrivateRoute>
+                <Main />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/home",
-        element: <Main />
+        element: (
+            <PrivateRoute>
+                <Main />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/projects",
-        element: <MyProjects/>
+        element: (
+            <PrivateRoute>
+                <MyProjects />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/projects/:projectId/epics",
-        element: <MyProjectsDetails/>
+        element: (
+            <PrivateRoute>
+                <MyProjectsDetails />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/epics/:epicId/stories",
-        element: <EpicDetails/>
+        element: (
+            <PrivateRoute>
+                <EpicDetails />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/stories/",
-        element: <Story/>
+        element: (
+            <PrivateRoute>
+                <Story />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/stories/:storyId/tasks",
-        element: <StoryDetails/>
+        element: (
+            <PrivateRoute>
+                <StoryDetails />
+            </PrivateRoute>
+        ),
     },
     {
-        path: "/Settings",
-        element: <Settings/>
+        path: "/settings",
+        element: (
+            <PrivateRoute>
+                <Settings />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/login",
-        element: <Login/>
-    }
-])
+        element: <Login />,
+    },
+]);

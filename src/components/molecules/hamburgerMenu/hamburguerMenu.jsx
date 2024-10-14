@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SideBar from '../../atoms/sideBar/sideBar';
+import SideBar from '../../atoms/sideBar/sideBar.jsx';
 import './styles.css'
 
 export default function HamburguerMenu({ level }) {

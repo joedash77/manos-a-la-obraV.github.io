@@ -1,46 +1,24 @@
-import React, { useEffect, useState } from 'react'
 import Header from '../organisms/header/Header';
-import { Link } from 'react-router-dom';
-import './StylesProyect.scss'
+import ProyectList from '../molecules/projectList/projectListComponent';
+import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
+import { useFetchProjects } from '../../utils/apiCalls';
 
 function MyProjects() {
-  const [projects, setProjects] = useState([]);
+  const { projects, error: projectsError } = useFetchProjects(); // Hook para obtener los proyectos
 
-  const header = {
-    'Content-Type': 'application/json',
-    'auth': localStorage.getItem('token')
+  if (projectsError) {
+    return <div>Error: {projectsError.message}</div>; 
   }
 
-  useEffect(() => {
-    fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/projects', 
-      {
-        method: 'GET',
-        headers: header
-      })
-    .then(respones => respones.json())
-    .then(data => setProjects(data.data))
-  }, []);
+  const a = projects.length - 1;
+  if (!projects[a]) {
+    return <LoadingSpinner message="Cargando proyectos..." />;
+  }
   
-  const projectList = projects.map((project) => (
-    <li key={project._id} className="project-item">
-      <Link to={`/projects/${project._id}/epics`} className="project-link">
-        {console.log(projects)}
-        <h3 className="project-name">{project.name}</h3>
-        <p className="project-description">{project.description}</p>
-      </Link>
-    </li>
-  ));
-
   return (
     <>
       <Header title='Mis Proyectos' level={2} />
-      <div className="main-container">
-        <div className="projects-wrapper">
-          <ul className="projects-list">
-            {projectList}
-          </ul>
-        </div>
-      </div>
+      <ProyectList projects={projects}/>
     </>
   );
 }
