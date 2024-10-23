@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
+const header = {
+  'Content-Type': 'application/json',
+  'auth': localStorage.getItem('token')
+};
+
 //Hooks epicas:
   // Hook para obtener las épicas
   export const useFetchEpics = (epicId) => {
     const [epics, setEpics] = useState([]);
     const [error, setError] = useState(null);
-    
-    const header = {
-      'Content-Type': 'application/json',
-      'auth': localStorage.getItem('token')
-    };
 
     useEffect(() => {
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/epics/${epicId}`, {
@@ -27,11 +27,6 @@ import { useEffect, useState } from 'react';
   // Hook para obtener las epicas de un proyecto específico
     export const useFetchProjectEpics = (projectId) => {
       const [epics, setEpics] = useState([]);
-    
-      const header = {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token')
-      }
     
       useEffect(() => {
         fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}/epics`, {
@@ -52,11 +47,6 @@ import { useEffect, useState } from 'react';
     const [stories, setStories] = useState([]);
     const [error, setError] = useState(null);
 
-    const header = {
-      'Content-Type': 'application/json',
-      'auth': localStorage.getItem('token')
-    };
-
     useEffect(() => {
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/epics/${epicId}/stories`, {
         method: 'GET',
@@ -75,10 +65,6 @@ import { useEffect, useState } from 'react';
       const [stories, setStories] = useState([]);
       const [error, setError] = useState(null);
     
-      const header = {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token')
-      };
     
       useEffect(() => {
         fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/stories', {
@@ -97,11 +83,6 @@ import { useEffect, useState } from 'react';
   export const useFetchStoriesSpecific = (storieId) => {
     const [stories, setStories] = useState([]);
     const [error, setError] = useState(null);
-
-    const header = {
-      'Content-Type': 'application/json',
-      'auth': localStorage.getItem('token')
-    };
 
     useEffect(() => {
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/stories/${storieId}`, {
@@ -122,11 +103,6 @@ import { useEffect, useState } from 'react';
       const [projects, setProyects] = useState([]);
       const [error, setError] = useState(null);
     
-      const header = {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token')
-      };
-    
       useEffect(() => {
         fetch('https://lamansysfaketaskmanagerapi.onrender.com/api/projects', {
           method: 'GET',
@@ -144,11 +120,6 @@ import { useEffect, useState } from 'react';
   export const useFetchProjectSpecific = (projectId) => {
     const [projects, setProjects] = useState({}); // Cambiado a un objeto vacío
     const [error, setError] = useState(null);
-  
-    const header = {
-      'Content-Type': 'application/json',
-      'auth': localStorage.getItem('token')
-    };
   
     useEffect(() => {
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}`, {
@@ -170,11 +141,6 @@ import { useEffect, useState } from 'react';
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(null);
   
-    const header = {
-      'Content-Type': 'application/json',
-      'auth': localStorage.getItem('token')
-    };
-  
     useEffect(() => {
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/stories/${storyId}/tasks`, {
         method: 'GET',
@@ -189,11 +155,6 @@ import { useEffect, useState } from 'react';
   };
 
   export const addTaskToStory = (taskData) => {
-      const header = {
-        'Content-Type': 'application/json',
-        'auth': localStorage.getItem('token')
-      };
-
       fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/`, {
         method: 'POST',
         headers: header,
@@ -201,7 +162,7 @@ import { useEffect, useState } from 'react';
       })
       .then(response => response.json())
       .then(data => 
-        {console.log('tarea agergada: ', data);
+        {console.log('tarea agregada: ', data.data);
         return data;
       })
       .catch(err => {
@@ -210,4 +171,21 @@ import { useEffect, useState } from 'react';
       });
   }
 
+  export const useFetchDeleteTask = () => {
+    const [error, setError] = useState(null);
+
+    const deleteTask = (taskId) => {
+    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${taskId}`, {
+      method: 'DELETE',
+      headers: header
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Tarea eliminada:', data);
+      })
+      .catch(err => setError(err));
+    }
+
+    return {deleteTask, error };
+  }
 
