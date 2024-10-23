@@ -46,7 +46,7 @@ import { useEffect, useState } from 'react';
     };
 
 
-//Hook para historias
+//Hook para historias:
   // Hook para obtener las historias de una épica específica
   export const useFetchEpicsStories = (epicId) => {
     const [stories, setStories] = useState([]);
@@ -187,5 +187,27 @@ import { useEffect, useState } from 'react';
   
     return { tasks, error };
   };
+
+  export const addTaskToStory = (taskData) => {
+      const header = {
+        'Content-Type': 'application/json',
+        'auth': localStorage.getItem('token')
+      };
+
+      fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/`, {
+        method: 'POST',
+        headers: header,
+        body: JSON.stringify(taskData)
+      })
+      .then(response => response.json())
+      .then(data => 
+        {console.log('tarea agergada: ', data);
+        return data;
+      })
+      .catch(err => {
+        console.log('Error al agregar tarea: ', err);
+        throw err;
+      });
+  }
 
 
