@@ -154,22 +154,33 @@ const header = {
     return { tasks, error };
   };
 
-  export const addTaskToStory = (taskData) => {
-      fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/`, {
+  export const addTaskToStory = async (taskData) => {
+  
+    console.log('Datos enviados a la API:', taskData); // Verifica los datos antes de enviarlos
+  
+    try {
+      const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/`, {
         method: 'POST',
         headers: header,
-        body: JSON.stringify(taskData)
-      })
-      .then(response => response.json())
-      .then(data => 
-        {console.log('tarea agregada: ', data.data);
-        return data;
-      })
-      .catch(err => {
-        console.log('Error al agregar tarea: ', err);
-        throw err;
+        body: JSON.stringify(taskData),
       });
-  }
+  
+      // Si la respuesta no es exitosa, lanzamos un error
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error del servidor:', errorText);
+        throw new Error(`Error: ${response.status} - ${errorText}`);
+      }
+  
+      // Si la respuesta es exitosa, obtenemos los datos
+      const data = await response.json();
+      console.log('Tarea agregada: ', data);
+      return data;
+    } catch (error) {
+      console.error('Error al agregar tarea:', error);
+      throw error; // Lanzamos el error para que pueda ser manejado más arriba
+    }
+  };
 
   export const useFetchDeleteTask = () => {
     const [error, setError] = useState(null);
@@ -188,4 +199,3 @@ const header = {
 
     return {deleteTask, error };
   }
-
