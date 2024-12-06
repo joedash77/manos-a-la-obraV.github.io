@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './StylesStoryDetails.scss'
-import { addTaskToStory, useFetchDeleteTask } from '../../../utils/apiCalls';
+import { addResource, useFetchDeleteTask } from '../../../utils/apiCalls';
 import CreateForm from '../FormTasks/CreateForm';
 
 const StoriesDetails = ({ stories, tasks }) => {
@@ -9,7 +9,7 @@ const StoriesDetails = ({ stories, tasks }) => {
 
   const handleAddTask = async (taskData) => {
     try {
-      await addTaskToStory(taskData);
+      await addResource(taskData, 'tasks');
       alert('Tarea agregada exitosamente');
       setShowForm(false); // Ocultar el formulario después de agregar la tarea
     } catch (err) {

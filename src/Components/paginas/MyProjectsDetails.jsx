@@ -2,18 +2,18 @@ import { useParams } from 'react-router-dom'
 import ProjectDetails from '../molecules/projectDetails/projectDetails'
 import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
 import Header from '../organisms/header/Header';
-import { useFetchProjectSpecific, useFetchProjectEpics } from '../../utils/apiCalls'
+import { useFetchResource } from '../../utils/apiCalls'
 
 function MyProjectsDetails() {
   const { projectId } = useParams();
-  const { projects, error: projectError } = useFetchProjectSpecific(projectId); // Hook para obtener épicas
-  const { epics, error: epicError } = useFetchProjectEpics(projectId); // Hook para obtener historias
+  const { resource: projects, error: projectError, loading:loadingProjects } = useFetchResource(`projects/${projectId}`);
+  const { resource: epics, error: epicError, loading:loadingEpics } = useFetchResource(`projects/${projectId}/epics`);
 
   if (projectError || epicError) {
     return <div>Error: {projectError?.message || epicError?.message}</div>;
   }
 
-  if (!projects || !projects.name) {
+  if (loadingProjects && loadingEpics) {
     return <LoadingSpinner message="Cargando proyecto..." />;
   }
 

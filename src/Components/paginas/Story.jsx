@@ -1,19 +1,18 @@
 import React from 'react'
 import Header from '../organisms/header/Header'
-import { useFetchStories } from '../../utils/apiCalls'
+import { useFetchResource } from '../../utils/apiCalls'
 import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
 import Stories from '../molecules/story/story'
 
 
 function Story() {
-  const { stories, error: storiesError } = useFetchStories(); // Hook para obtener historias
+  const { resource:stories, error: storiesError, loading:loading } = useFetchResource('stories'); // Hook para obtener historias
 
   if (storiesError) {
     return <div>Error: {storiesError.message}</div>;
   }
 
-  const a = stories.length - 1;
-  if (!stories[a]) {
+  if (loading) {
     return <LoadingSpinner message="Cargando historias..." />;
   }
 

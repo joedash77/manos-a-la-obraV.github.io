@@ -1,22 +1,21 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { useFetchStoriesSpecific, useFetchTasks } from '../../utils/apiCalls'
+import { useFetchResource } from '../../utils/apiCalls'
 import Header from '../organisms/header/Header';
 import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
 import Storydetails from '../molecules/storyDetails/storyDetails'
 
 function StoryDetails() {
   const { storyId } = useParams();
-
-  const { stories, error: storiesError } = useFetchStoriesSpecific(storyId);
-  const { tasks, error: tasksError } = useFetchTasks(storyId);
+  const { resource:stories, error: storiesError, loading:loadingStories } = useFetchResource(`stories/${storyId}`);
+  const { resource:tasks, error: tasksError, loading:loadingTasks } = useFetchResource(`stories/${storyId}/tasks`);
 
 
   if (tasksError || storiesError) {
     return <div>Error: {epicsError?.message || storiesError?.message}</div>;
   }
 
-  if (!stories || !stories.name) {
+  if (loadingStories && loadingTasks) {
     return <LoadingSpinner message="Cargando historia..." />;
   }
   
