@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
 import './StylesStoryDetails.scss'
-import { addResource, useFetchDeleteTask } from '../../../utils/apiCalls';
+import { addResource, useFetchDeleteTask, useFetchResource } from '../../../utils/apiCalls';
 import CreateForm from '../FormTasks/CreateForm';
 
-const StoriesDetails = ({ stories, tasks }) => {
+const StoriesDetails = ({ stories }) => {
+  const {resource: tasks, loading, error, refetch} = useFetchResource(`stories/${stories._id}/tasks`);
   const { deleteTask, error: deleteTaskError } = useFetchDeleteTask();
   const [showForm, setShowForm] = useState(false);
 
   const handleAddTask = async (taskData) => {
     try {
       await addResource(taskData, 'tasks');
-      alert('Tarea agregada exitosamente');
       setShowForm(false); // Ocultar el formulario después de agregar la tarea
+      refetch();
     } catch (err) {
       console.error('Error al agregar tarea:', err);
       alert('Error al agregar la tarea');
     }
   };
 
-  const handleDelete = (taskId) => {
-    console.log(taskId);
-    deleteTask(taskId);
+  const handleDelete = async (taskId) => {
+    try{
+
+      console.log(taskId);
+      await deleteTask(taskId);
+      refetch();
+    }catch(err){
+      console.error('Error al borrar tarea:', err);
+      alert('Error al eliminar la tarea');
+    }
   };
 
   return (
@@ -31,6 +39,8 @@ const StoriesDetails = ({ stories, tasks }) => {
         <p className="story-description">{stories.description}</p>
         <h2 className="story-subtitle">Tareas</h2>
         
+        {loading ? ( <p>Cargando tareas...</p>) : (tasks.length <= 0 && <p>No hay tareas agregadas</p>)}
+        {error && <p>Error al cargar tareas: {error.message}</p>}
         {/* Botón para mostrar el formulario */}
         <button onClick={() => setShowForm(true)}>Agregar Tarea</button> 
         

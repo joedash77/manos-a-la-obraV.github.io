@@ -10,7 +10,6 @@ export const useFetchResource = (endpoint) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true); // Inicia la carga
@@ -31,18 +30,15 @@ export const useFetchResource = (endpoint) => {
         setLoading(false); // Finaliza la carga
       }
     };
-
-    fetchData();
-  }, [endpoint]);
-
-  return { resource, loading, error };
+    
+    useEffect(() =>{
+      fetchData();
+    },  [endpoint]);
+  return { resource, loading, error, refetch: fetchData };
 };
 
 
   export const addResource = async (taskData,endpoint) => {
-  
-    console.log('Datos enviados a la API:', taskData); // Verifica los datos antes de enviarlos
-  
     try {
       const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/${endpoint}`, {
         method: 'POST',
@@ -67,20 +63,31 @@ export const useFetchResource = (endpoint) => {
     }
   };
 
-  export const useFetchDeleteTask = () => {
-    const [error, setError] = useState(null);
+ // Hook para eliminar un recurso de la API
+export const useFetchDeleteTask = () => {
+  const [error, setError] = useState(null);
 
-    const deleteTask = (taskId) => {
-    fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${taskId}`, {
-      method: 'DELETE',
-      headers: header
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Tarea eliminada:', data);
-      })
-      .catch(err => setError(err));
+  const deleteTask = async (taskId) => {
+    try {
+      const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${taskId}`, {
+        method: 'DELETE',
+        headers: header,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      console.log('Tarea eliminada:', data);
+      return data;
+    } catch (err) {
+      console.error('Error al eliminar tarea:', err);
+      setError(err);
+      throw err;
     }
+  };
 
-    return {deleteTask, error };
-  }
+  return { deleteTask, error };
+};

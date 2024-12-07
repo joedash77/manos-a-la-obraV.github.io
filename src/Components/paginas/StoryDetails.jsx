@@ -12,7 +12,7 @@ function StoryDetails() {
 
 
   if (tasksError || storiesError) {
-    return <div>Error: {epicsError?.message || storiesError?.message}</div>;
+    return <div>Error: {tasksError?.message || storiesError?.message}</div>;
   }
 
   if (loadingStories && loadingTasks) {
