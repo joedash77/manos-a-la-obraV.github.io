@@ -38,42 +38,52 @@ const StoriesDetails = ({ stories }) => {
         <hr className="divider" />
         <p className="story-description">{stories.description}</p>
         <h2 className="story-subtitle">Tareas</h2>
-        
-        {loading ? ( <p>Cargando tareas...</p>) : (tasks.length <= 0 && <p>No hay tareas agregadas</p>)}
-        {error && <p>Error al cargar tareas: {error.message}</p>}
-        {/* Botón para mostrar el formulario */}
-        <button onClick={() => setShowForm(true)}>Agregar Tarea</button> 
-        
-        {/* Formulario de creación de tarea */}
-        {showForm && (
-          <CreateForm
-            title="Agregar Tarea"
-            initialData={{
-              done: false,
-              story: stories._id,
-              name: '',
-              description: '',
-              created: new Date().toISOString(),
-              due: new Date().toISOString(),
-            }}
-            fields={[
-              { name: 'name', label: 'Título' },
-              { name: 'description', label: 'Descripción' },
-              { name: 'created', label: 'Fecha de Creación', type: 'date' },
-              { name: 'due', label: 'Fecha de Finalización', type: 'date' },
-            ]}
-            onSubmit={handleAddTask}
-          />
+  
+        {loading ? (
+          <p>Cargando tareas...</p>
+        ) : (
+          tasks.length <= 0 && <p className="no-tasks-message">No hay tareas agregadas</p>
         )}
-        
+        {error && <p>Error al cargar tareas: {error.message}</p>}
+  
+        {/* Contenedor principal con diseño flex */}
+        <div className="tasks-layout">
+          {/* Botón para mostrar el formulario */}
+          <button className="add-task-button" onClick={() => setShowForm(true)}>
+            Agregar Tarea
+          </button>
+  
+          {/* Formulario de creación de tarea */}
+          {showForm && (
+            <CreateForm
+              title="Agregar Tarea"
+              initialData={{
+                done: false,
+                story: stories._id,
+                name: '',
+                description: '',
+                created: new Date().toISOString(),
+                due: new Date().toISOString(),
+              }}
+              fields={[
+                { name: 'name', label: 'Título' },
+                { name: 'description', label: 'Descripción' },
+                { name: 'created', label: 'Fecha de Creación', type: 'date' },
+                { name: 'due', label: 'Fecha de Finalización', type: 'date' },
+              ]}
+              onSubmit={handleAddTask}
+              onClose={() => setShowForm(false)}
+            />
+          )}
+        </div>
+  
         {/* Lista de tareas */}
         <ul className="task-list">
           {tasks.map((t) => (
             <li key={t._id} className="task-item">
-              {console.log(t._id)}
               <span className="task-name">{t.name}:</span>
               <span className="task-description"> {t.description}</span>
-              <button onClick={() => handleDelete(t._id)}> - </button>
+              <button onClick={() => handleDelete(t._id)} className="delete-button"> - </button>
             </li>
           ))}
         </ul>

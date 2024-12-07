@@ -1,91 +1,193 @@
 /* Contenedor de la página de la historia */
 .story-page-container {
-    padding: 20px;
-    width: 700px;
-    margin: 0 auto; /* Centrar el contenedor en la página */
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 150px;
-  }
-  
-  /* Contenedor interno de la historia */
-  .story-container {
-    padding: 20px;
-    background-color: white;
-    
-  }
-  
-  /* Título de la historia */
-  .story-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Descripción de la historia */
-  .story-description {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Subtítulo de las tareas */
-  .story-subtitle {
-    font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Lista de tareas */
-  .task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Cada tarea individual */
-  .task-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-  
-  /* Nombre de la tarea */
-  .task-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  /* Descripción de la tarea */
-  .task-description {
-    font-size: 1rem;
-    color: #666;
-  }
+  padding: 20px;
+  width: 700px;
+  margin: 0 auto; /* Centrar el contenedor en la página */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 150px;
+}
 
-  .divider {
-    width: 100px;
-    height: 2px;
-    background-color: #007bff; /* Color de la línea */
-    margin: 10px auto;
-    border: none;
-  }
-  
-  /* Efecto hover para cada tarea */
-  .task-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .task-item:hover .task-name {
-    color: #007bff;
-  }
+/* Contenedor interno de la historia */
+.story-container {
+  padding: 20px;
+  background-color: white;
+}
+
+/* Título de la historia */
+.story-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Descripción de la historia */
+.story-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Subtítulo de las tareas */
+.story-subtitle {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Lista de tareas */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada tarea individual */
+.task-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+/* Nombre de la tarea */
+.task-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Descripción de la tarea */
+.task-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  background-color: #007bff; /* Color de la línea */
+  margin: 10px auto;
+  border: none;
+}
+
+/* Efecto hover para cada tarea */
+.task-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.task-item:hover .task-name {
+  color: #007bff;
+}
+
+/* Estilo para el botón de eliminar */
+button.delete-button {
+  background-color: transparent; /* Fondo transparente */
+  color: #ff4d4f; /* Color rojo para el texto */
+  padding: 6px 12px; /* Tamaño más pequeño */
+  border: 1px solid #ff4d4f; /* Borde fino rojo */
+  border-radius: 4px; /* Bordes ligeramente redondeados */
+  font-size: 14px; /* Tamaño de fuente más pequeño */
+  margin: 0; /* Eliminar márgenes */
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.8; /* Más transparente por defecto */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  text-align: center; /* Alineación del texto */
+  display: inline-block; /* Para que no ocupe todo el espacio y se quede en línea */
+  float: right; /* Alinea el botón a la derecha */
+}
+
+/* Hover: color de fondo rojo transparente */
+button.delete-button:hover {
+  background-color: rgba(255, 77, 79, 0.2); /* Rojo transparente */
+  color: #ff4d4f; /* Mantiene el color rojo */
+  border-color: #ff4d4f; /* Borde rojo */
+}
+
+/* Cuando el botón está en foco o activo */
+button.delete-button:focus,
+button.delete-button:active {
+  outline: none;
+  transform: translateY(0); /* Vuelve al estado original al hacer clic */
+}
+
+/* Estilo específico para el contenedor de tareas y formulario */
+.tasks-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Alinea los elementos a la izquierda */
+  margin-bottom: 10px;
+  width: 100%; /* Asegura que ocupe todo el espacio */
+}
+
+/* Estilo para el botón de agregar tarea */
+.add-task-button {
+  background-color: transparent; /* Fondo transparente */
+  color: #333; /* Color oscuro para el texto */
+  padding: 8px 16px; /* Espaciado más pequeño */
+  border: 1px solid #ccc; /* Borde sutil y fino */
+  border-radius: 4px; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  transition: all 0.3s ease; /* Transición suave para todos los efectos */
+  margin-bottom: 10px; /* Espacio debajo del botón */
+}
+
+.add-task-button:hover {
+  background-color: #f0f0f0; /* Color de fondo muy suave al pasar el cursor */
+  border-color: #007bff; /* Borde azul suave en hover */
+  color: #007bff; /* Color de texto azul en hover */
+}
+
+.add-task-button:focus,
+.add-task-button:active {
+  outline: none; /* Sin borde al hacer clic */
+  transform: scale(1.02); /* Ligeramente más grande al hacer clic */
+}
+
+.create-form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.create-form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.loading-message, .error-message {
+  font-size: 1rem;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.loading-message {
+  color: #007bff;
+}
+
+.error-message {
+  color: #ff4d4f;
+}
+
+.no-tasks-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  margin: 20px 0;
+}

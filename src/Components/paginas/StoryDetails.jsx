@@ -16,7 +16,7 @@ function StoryDetails() {
   }
 
   if (loadingStories && loadingTasks) {
-    return <LoadingSpinner message="Cargando historia..." />;
+    return <LoadingSpinner message="Cargando historias..." />;
   }
   
   return (
