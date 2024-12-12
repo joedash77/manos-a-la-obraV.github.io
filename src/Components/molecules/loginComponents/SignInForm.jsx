@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export default function LoginForm({ onSubmit }) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
+    email: '',
   });
 
   const handleChange = (e) => {
@@ -20,6 +20,14 @@ export default function LoginForm({ onSubmit }) {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <div className="login-inputs">
+      <input
+          placeholder="Email"
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="login-input"
+        />
         <input
           placeholder="Username"
           type="text"
@@ -38,9 +46,8 @@ export default function LoginForm({ onSubmit }) {
         />
       </div>
       <button type="submit" className="login-button">
-        Login
+        Sign in
       </button>
-      <Link to="/signin" className="login-button">Sign in</Link>
     </form>
   );
 }

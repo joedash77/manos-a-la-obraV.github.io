@@ -7,6 +7,7 @@ import MyProjectsDetails from "../components/paginas/MyProjectsDetails";
 import EpicDetails from "../components/paginas/EpicDetails";
 import StoryDetails from "../components/paginas/StoryDetails";
 import Login from "../components/paginas/Login";
+import SignIn from "../components/paginas/SignIn";
 import PrivateRoute from "./PrivateRoute";  // Importa el componente de rutas privadas
 
 export const router = createBrowserRouter([
@@ -78,4 +79,8 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
     },
+    {
+        path: "/signin",
+        element: <SignIn />,
+    }
 ]);
