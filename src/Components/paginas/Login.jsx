@@ -27,8 +27,8 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1 className="login-title">Login</h1>
-        <p className="login-description">Please enter your login and password</p>
+        <h1 className="login-title">Acceder</h1>
+        <p className="login-description">Por favor ingrese su nombre de usuario y contraseña</p>
         <LoginForm onSubmit={handleLogin} />
         <LoginMessage message={message} />
       </div>

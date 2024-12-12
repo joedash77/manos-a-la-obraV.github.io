@@ -46,10 +46,10 @@
   }
   
   .login-button {
-    background-color: var(--primary-color);
+   background-color: var(--primary-color);
     color: rgb(0, 0, 0);
     padding: 12px 20px;
-    border: none;
+    border: none; 
     border-radius: 5px;
     font-size: 18px;
     margin-top: 20px;

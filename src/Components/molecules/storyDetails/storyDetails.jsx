@@ -44,7 +44,7 @@ const StoriesDetails = ({ stories }) => {
                 story: stories._id,
                 name: '',
                 description: '',
-                created: new Date().toISOString(),
+                created: Date.now,
                 due: new Date().toISOString(),
               }}
               onSubmit={addTask}

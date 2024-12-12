@@ -29,7 +29,7 @@ export default function LoginForm({ onSubmit }) {
           className="login-input"
         />
         <input
-          placeholder="Username"
+          placeholder="Usuario"
           type="text"
           name="username"
           value={formData.username}
@@ -37,7 +37,7 @@ export default function LoginForm({ onSubmit }) {
           className="login-input"
         />
         <input
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           name="password"
           value={formData.password}
@@ -46,7 +46,7 @@ export default function LoginForm({ onSubmit }) {
         />
       </div>
       <button type="submit" className="login-button">
-        Sign in
+        Registrarse
       </button>
     </form>
   );

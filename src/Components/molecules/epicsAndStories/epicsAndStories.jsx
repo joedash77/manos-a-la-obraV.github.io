@@ -40,15 +40,30 @@ const EpicsAndStories = ({ epics }) => {
                     description: '',
                     epic: epics._id,
                     owner: localStorage.getItem("userID"),
-                    assignedTo:localStorage.getItem("userID"),
+                    assignedTo: localStorage.getItem("userID"),
                     points:'',
                     created: Date.now,
                     finished: '',
                     status: 'todo'
                   }}
                   fields={[
-                    { name: 'name', label: 'Nombre de la Storie' },
+                    { name: 'name', label: 'Nombre de la Storie', type: 'text' },
                     { name: 'description', label: 'Descripción', type: 'textarea' },
+                    { name: 'points', label: 'Puntos', type: 'number', placeholder: 'Entre 0 y 5', min: 0, max: 5 },
+                    { name: 'due', label: 'Fecha de vencimiento', type: 'date' },
+                    { name: 'started', label: 'Fecha de inicio', type: 'date' },
+                    { name: 'finished', label: 'Fecha de finalización', type: 'date' },
+                    {
+                      name: 'status',
+                      label: 'Estado',
+                      type: 'select',
+                      options: [
+                        { value: 'todo', label: 'Por hacer' },
+                        { value: 'running', label: 'En progreso' },
+                        { value: 'done', label: 'Hecho' },
+                      ],
+                    },
+                    { name: 'icon', label: 'Ícono', type: 'text', placeholder: 'ícono' },
                   ]}
                   onSubmit={addStorie}
                   onClose={() => setShowAddForm(false)}
@@ -60,8 +75,23 @@ const EpicsAndStories = ({ epics }) => {
                   title="Editar Storie"
                   initialData={editingStorie}
                   fields={[
-                    { name: 'name', label: 'Nombre de la Storie' },
+                    { name: 'name', label: 'Nombre de la Storie', type: 'text' },
                     { name: 'description', label: 'Descripción', type: 'textarea' },
+                    { name: 'points', label: 'Puntos', type: 'number', placeholder: 'Entre 0 y 5', min: 0, max: 5 },
+                    { name: 'due', label: 'Fecha de vencimiento', type: 'date' },
+                    { name: 'started', label: 'Fecha de inicio', type: 'date' },
+                    { name: 'finished', label: 'Fecha de finalización', type: 'date' },
+                    {
+                      name: 'status',
+                      label: 'Estado',
+                      type: 'select',
+                      options: [
+                        { value: 'todo', label: 'Por hacer' },
+                        { value: 'running', label: 'En progreso' },
+                        { value: 'done', label: 'Hecho' },
+                      ],
+                    },
+                    { name: 'icon', label: 'Ícono', type: 'text', placeholder: 'ícono' },
                   ]}
                   onSubmit={updateStorie}
                   onClose={() => setEditingStorie(null)}

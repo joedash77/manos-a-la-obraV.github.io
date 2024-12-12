@@ -32,7 +32,7 @@ export const useTasks = (storyId) => {
 
   const deleteTask = async (taskId) => {
     try {
-      await deleteResource('tasks', taskId);
+      await deleteResource(`tasks/${taskId}`);
       refetch();
     } catch (err) {
       console.error('Error al eliminar tarea:', err);
