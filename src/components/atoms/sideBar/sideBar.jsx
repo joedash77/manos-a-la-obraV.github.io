@@ -36,13 +36,8 @@ export default function SideBar({ isOpen, toggleSidebar, level }) {
 
           {/* User Profile Link */}
           <div className="user-profile">
-<<<<<<< HEAD
               <Link to="/Settings" onClick={closeSidebar}>Configuración de usuario</Link>
               <p>Usuario: {user.username}</p>
-=======
-              <Link to="/Settings" onClick={closeSidebar}>Configuracion de usuario</Link>
-              <p>Usuario: John Doe</p>
->>>>>>> 22b7f7cf3f1734893e4c6bbc1c0734425d741f24
           </div>
       </div>
   );
