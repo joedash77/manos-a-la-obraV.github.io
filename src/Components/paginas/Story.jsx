@@ -6,8 +6,10 @@ import Stories from '../molecules/story/story'
 
 
 function Story() {
-  const { resource:stories, error: storiesError, loading:loading } = useFetchResource('stories'); // Hook para obtener historias
+  const userId = localStorage.getItem("userID")
+  const { resource:stories, error: storiesError, loading:loading } = useFetchResource(`stories/user/${userId}`); // Hook para obtener historias
 
+  console.log(stories)
   if (storiesError) {
     return <div>Error: {storiesError.message}</div>;
   }

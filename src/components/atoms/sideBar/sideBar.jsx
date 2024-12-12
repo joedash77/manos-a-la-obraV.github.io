@@ -19,20 +19,20 @@ export default function SideBar({ isOpen, toggleSidebar, level }) {
           <nav className="nav-links">
               <ul>
                   <li>
-                      <Link to="/Home" onClick={closeSidebar}>Home</Link>
+                      <Link to="/Home" onClick={closeSidebar}>Menu</Link>
                   </li>
                   <li>
-                      <Link to="/projects" onClick={closeSidebar}>My Projects</Link>
+                      <Link to="/projects" onClick={closeSidebar}>Mis Proyectos</Link>
                   </li>
                   <li>
-                      <Link to="/stories/" onClick={closeSidebar}>My Stories</Link>
+                      <Link to="/stories/" onClick={closeSidebar}>Mis Historias</Link>
                   </li>
               </ul>
           </nav>
 
           {/* User Profile Link */}
           <div className="user-profile">
-              <Link to="/Settings" onClick={closeSidebar}>Configuración de usuario</Link>
+              <Link to="/Settings" onClick={closeSidebar}>Configuracion de usuario</Link>
               <p>Usuario: John Doe</p>
           </div>
       </div>

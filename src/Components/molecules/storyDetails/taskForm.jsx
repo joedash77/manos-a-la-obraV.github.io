@@ -5,7 +5,6 @@ const TaskForm = ({ title, initialData, onSubmit, onClose }) => {
   const fields = [
     { name: 'name', label: 'Título' },
     { name: 'description', label: 'Descripción' },
-    { name: 'created', label: 'Fecha de Creación', type: 'date' },
     { name: 'due', label: 'Fecha de Finalización', type: 'date' },
     {
       name: 'done',
