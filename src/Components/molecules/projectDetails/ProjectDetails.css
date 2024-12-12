@@ -1,6 +1,5 @@
 /* Contenedor principal que envuelve todos los componentes */
 .project-details-wrapper {
-
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -9,29 +8,29 @@
   padding: 10px; /* Reducir el padding para hacer el contenedor más pequeño */
   width: 700px; /* Definir un ancho máximo para hacer el contenedor más pequeño */
   margin: 10px auto; /* Centrar el contenedor horizontalmente */
-  margin-top: 150px;
+  margin-top: 50px;
   
 }
 
 
-
 /* Lista de epics */
-.epics-list {
+.epic-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  width: 600px; 
+  margin: 0 ;
 }
 
 /* Cada epic individual */
 .epic-item {
   background-color: #ffffff;
   border: 1px solid #ddd;
-  padding: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 600px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 /* Efecto hover para cada epic */
@@ -48,11 +47,23 @@
   text-align: center;
   font-size: 1.5rem;
   transition: color 0.3s ease; /* Transición suave para el cambio de color */
+  margin-left: 10px;
 }
 
-.epic-link:hover {
-  color: #007bff; /* Cambiar el color del enlace al pasar el cursor */
+.epics-name{
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
+  max-width: 480px;
 }
+.epic-link:hover .epics-name {
+  color: #007bff;
+}
+
 
 /* Título del proyecto */
 .project-name {
@@ -98,3 +109,141 @@
   color: #666;
   font-weight: 500;
 }
+
+.epic-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
+}
+
+.epics-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y botones */
+  align-items: center; /* Alinear verticalmente */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  margin-bottom: 10px; /* Espacio entre el título y la descripción */
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
+}
+
+/* Estilos de los botones */
+button.edit-epics-button, button.delete-epics-button {
+  background-color: transparent;
+  padding: 6px 12px; /* Ajuste uniforme de padding para ambos botones */
+  
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.8;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  height: 36px; /* Ajuste de altura para que ambos botones tengan la misma altura */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido dentro del botón */
+}
+
+.edit-epics-button{
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.delete-epics-button{
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+}
+
+/* Hover para el botón de editar */
+button.edit-epics-button:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Hover para el botón de eliminar */
+button.delete-epics-button:hover {
+  background-color: rgba(255, 77, 79, 0.2);
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.epics-actions {
+  display: flex;
+  gap: 8px; /* Espaciado entre los botones */
+  align-items: center; /* Alinea los botones con el título */
+  padding-right: 5px;
+}
+
+.epics-layout {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Alinea los elementos a la izquierda */
+  width: 600px; /* Asegura que ocupe todo el espacio */
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-details-wrapper {
+    width: 90%; /* Ajusta el contenedor para pantallas más pequeñas */
+    margin-top: 30px;
+  }
+
+  .epic-list {
+    width: 100%;
+    margin: 0;
+  }
+
+  .epic-item {
+    width: 100%; /* Los ítems de las épicas deben ocupar todo el ancho */
+    margin-bottom: 15px;
+  }
+
+  .epic-link {
+    font-size: 1.2rem; /* Ajustar el tamaño de fuente */
+  }
+
+  .epics-name {
+    font-size: 1.5rem; /* Ajustar el tamaño del nombre */
+  }
+
+  .epics-title {
+    font-size: 1.5rem;
+  }
+
+  .project-name {
+    font-size: 2rem; /* Reducir tamaño de fuente */
+  }
+
+  .project-description {
+    font-size: 1rem; /* Reducir tamaño de fuente */
+  }
+
+  .divider {
+    width: 80px; /* Reducir tamaño de la línea */
+  }
+
+  .epic-description {
+    font-size: 1rem;
+  }
+
+  /* Asegurarse de que las acciones de los botones se ajusten */
+  .epics-actions {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* Ajuste de los botones */
+  button.edit-epics-button,
+  button.delete-epics-button {
+    font-size: 12px;
+    padding: 5px 10px;
+    height: 30px; /* Botones más pequeños */
+  }
+}
+

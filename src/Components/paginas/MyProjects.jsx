@@ -4,7 +4,9 @@ import LoadingSpinner from '../molecules/loadingSpinner/loadingSpinner';
 import { useFetchResource } from '../../utils/apiCalls';
 
 function MyProjects() {
-  const { resource:projects, error: projectsError, loading:loading } = useFetchResource('projects'); // Hook para obtener los proyectos
+
+  const userId = localStorage.getItem('userID');
+  const { resource:projects, error: projectsError, loading:loading } = useFetchResource(`projects/user/${userId}`); // Hook para obtener los proyectos
 
   if (projectsError) {
     return <div>Error: {projectsError.message}</div>; 

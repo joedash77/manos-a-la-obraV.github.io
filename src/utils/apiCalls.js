@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const auth = localStorage.getItem('token')
+
 const header = {
   'Content-Type': 'application/json',
   'auth': localStorage.getItem('token')
@@ -13,7 +15,7 @@ export const useFetchResource = (endpoint) => {
     const fetchData = async () => {
       try {
         setLoading(true); // Inicia la carga
-        const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/${endpoint}`, {
+        const response = await fetch(`http://localhost:3000/${endpoint}`, {
           method: 'GET',
           headers: header
         });
@@ -38,9 +40,9 @@ export const useFetchResource = (endpoint) => {
 };
 
 
-  export const addResource = async (taskData,endpoint) => {
+  export const addResource = async (taskData, endpoint) => {
     try {
-      const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/${endpoint}`, {
+      const response = await fetch(`http://localhost:3000/${endpoint}`, {
         method: 'POST',
         headers: header,
         body: JSON.stringify(taskData),
@@ -64,14 +66,14 @@ export const useFetchResource = (endpoint) => {
   };
 
  // Hook para eliminar un recurso de la API
-export const useFetchDeleteTask = () => {
+ export const useFetchDeleteResource = () => {
   const [error, setError] = useState(null);
 
-  const deleteTask = async (taskId) => {
+  const deleteResource = async (endpoint) => {
     try {
-      const response = await fetch(`https://lamansysfaketaskmanagerapi.onrender.com/api/tasks/${taskId}`, {
+      const response = await fetch(`http://localhost:3000/${endpoint}`, {
         method: 'DELETE',
-        headers: header,
+        headers: header
       });
 
       if (!response.ok) {
@@ -80,14 +82,40 @@ export const useFetchDeleteTask = () => {
       }
 
       const data = await response.json();
-      console.log('Tarea eliminada:', data);
+      console.log('Recurso eliminado:', data);
       return data;
     } catch (err) {
-      console.error('Error al eliminar tarea:', err);
+      console.error('Error al eliminar recurso:', err);
       setError(err);
       throw err;
     }
   };
 
-  return { deleteTask, error };
+  return { deleteResource, error };
+};
+
+
+export const updateResource = async (endpoint, resourceData) => {
+  try {
+    const response = await fetch(`http://localhost:3000/${endpoint}`, {
+      method: 'PUT', 
+      headers: header,
+      body: JSON.stringify(resourceData), // Datos que se van a actualizar
+    });
+
+    // Si la respuesta no es exitosa, lanzamos un error
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Error del servidor:', errorText);
+      throw new Error(`Error: ${response.status} - ${errorText}`);
+    }
+
+    // Si la respuesta es exitosa, obtenemos los datos
+    const data = await response.json();
+    console.log('Tarea actualizada: ', data);
+    return data;
+  } catch (error) {
+    console.error('Error al actualizar tarea:', error);
+    throw error; // Lanzamos el error para que pueda ser manejado más arriba
+  }
 };

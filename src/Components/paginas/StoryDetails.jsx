@@ -10,6 +10,7 @@ function StoryDetails() {
   const { resource:stories, error: storiesError, loading:loadingStories } = useFetchResource(`stories/${storyId}`);
   const { resource:tasks, error: tasksError, loading:loadingTasks } = useFetchResource(`stories/${storyId}/tasks`);
 
+  console.log(tasks)
 
   if (tasksError || storiesError) {
     return <div>Error: {tasksError?.message || storiesError?.message}</div>;

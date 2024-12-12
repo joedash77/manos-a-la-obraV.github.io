@@ -12,8 +12,8 @@ export default function Login() {
   const handleLogin = async (formData) => {
     try {
       const data = await loginUser(formData);
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('userID', data.user._id);
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('userID', data.data.user._id); // Asegúrate de usar _id aquí
       setMessage('Login exitoso. Redirigiendo...');
 
       setTimeout(() => {
