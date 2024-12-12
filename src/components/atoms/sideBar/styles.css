@@ -28,8 +28,8 @@
   padding: 0;
   margin: 0;
   display: flex;
+  height: 500px;
   flex-direction: column;
-  gap: 70px; /* Espaciado entre los elementos de la lista */
 }
 
 .nav-links ul li {
@@ -37,6 +37,7 @@
   border-radius: 20px; /* Bordes redondeados para cada botón */
   padding: 15px 20px; /* Espaciado interno para un área de clic más grande */
   text-align: center; /* Centra el texto dentro del contenedor */
+  margin-top: 100px;
 }
 
 .nav-links ul li a {
@@ -53,8 +54,7 @@
 
 /* Sección del perfil de usuario */
 .user-profile {
-  margin-top: auto; /* Mueve la sección del perfil hacia abajo */
-  padding-top: 20px;
+  padding-top: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -83,14 +83,22 @@
     width: 200px; /* Ajuste de ancho en pantallas pequeñas */
   }
 
+  .nav-links{
+    height: 320px;
+  }
+
   .nav-links ul li a {
     font-size: 1rem; /* Ajuste de tamaño de fuente en pantallas pequeñas */
   }
+
+  .nav-links ul li {
+    margin-top: 50px;
+  }
 }
+
 
 .button-container {
   display: flex; /* Usa flexbox para alinear los botones */
   justify-content: space-between; /* Espacio entre los botones */
-  margin-bottom: 20px; /* Espacio debajo del contenedor de botones */
 }
 

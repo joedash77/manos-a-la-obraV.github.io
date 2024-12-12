@@ -1,18 +1,20 @@
 /* Contenedor de la página de la historia */
 .story-page-container {
-  padding: 20px;
+  padding: 10px;
   width: 700px;
   margin: 0 auto; /* Centrar el contenedor en la página */
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 150px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 /* Contenedor interno de la historia */
 .story-container {
-  padding: 20px;
   background-color: white;
+  width: 600px;
+  margin: auto;
 }
 
 /* Título de la historia */
@@ -22,6 +24,7 @@
   color: #333;
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 /* Descripción de la historia */
@@ -49,21 +52,17 @@
 
 /* Cada tarea individual */
 .task-item {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
 }
 
-/* Nombre de la tarea */
-.task-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #333;
-}
+
 
 /* Descripción de la tarea */
 .task-description {
@@ -89,36 +88,67 @@
   color: #007bff;
 }
 
-/* Estilo para el botón de eliminar */
-button.delete-button {
-  background-color: transparent; /* Fondo transparente */
-  color: #ff4d4f; /* Color rojo para el texto */
-  padding: 6px 12px; /* Tamaño más pequeño */
-  border: 1px solid #ff4d4f; /* Borde fino rojo */
-  border-radius: 4px; /* Bordes ligeramente redondeados */
-  font-size: 14px; /* Tamaño de fuente más pequeño */
-  margin: 0; /* Eliminar márgenes */
+/* Contenedor principal de la tarea */
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Contenedor del texto de la tarea */
+.task-text {
+  flex: 1; /* Ocupa todo el espacio disponible antes de los botones */
+}
+
+/* Contenedor de los botones */
+.task-actions {
+  display: flex; /* Coloca los botones en una fila */
+  gap: 5px; /* Espaciado entre botones */
+}
+
+/* Botón de editar */
+button.edit-button {
+  background-color: transparent;
+  color: #007bff;
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 14px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  opacity: 0.8; /* Más transparente por defecto */
+  opacity: 0.8;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  text-align: center; /* Alineación del texto */
-  display: inline-block; /* Para que no ocupe todo el espacio y se quede en línea */
-  float: right; /* Alinea el botón a la derecha */
 }
 
-/* Hover: color de fondo rojo transparente */
+button.edit-button:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Botón de eliminar */
+button.delete-button {
+  background-color: transparent;
+  color: #ff4d4f;
+  padding: 6px 12px;
+  border: 1px solid #ff4d4f;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.8;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
 button.delete-button:hover {
-  background-color: rgba(255, 77, 79, 0.2); /* Rojo transparente */
-  color: #ff4d4f; /* Mantiene el color rojo */
-  border-color: #ff4d4f; /* Borde rojo */
-}
-
-/* Cuando el botón está en foco o activo */
-button.delete-button:focus,
-button.delete-button:active {
-  outline: none;
-  transform: translateY(0); /* Vuelve al estado original al hacer clic */
+  background-color: rgba(255, 77, 79, 0.2);
+  color: #ff4d4f;
+  border-color: #ff4d4f;
 }
 
 /* Estilo específico para el contenedor de tareas y formulario */
@@ -155,21 +185,6 @@ button.delete-button:active {
   transform: scale(1.02); /* Ligeramente más grande al hacer clic */
 }
 
-.create-form-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  transition: border-color 0.3s ease;
-}
-
-.create-form-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
 .loading-message, .error-message {
   font-size: 1rem;
   text-align: center;
@@ -191,3 +206,19 @@ button.delete-button:active {
   text-align: center;
   margin: 20px 0;
 }
+
+.task-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 480px;
+
+  &.task-done {
+    text-decoration: line-through;
+    color: #888; // Opcional, un color más tenue para texto tachado
+  }
+}
+
+
+

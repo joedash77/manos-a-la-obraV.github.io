@@ -1,18 +1,20 @@
 /* Estilo del Header */
 .header {
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
-  padding: 20px;
-  background-color: #ffffff; /* Fondo blanco sólo en el header */
-  box-shadow: 0px 4px 10px rgba(247, 5, 5, 0.1); /* Sombra sutil */
-  border-radius: 8px;
-  position: fixed; /* Fija el header en la parte superior de la pantalla */
-  top: 0; /* Posiciona el header en la parte superior */
+  align-items: center;
+  justify-content: space-between; /* Distribuye contenido dentro del header */
+  padding: 20px; /* Espaciado interno */
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(247, 5, 5, 0.1);
+  border-radius: 0; /* Elimina bordes redondeados */
+  position: sticky; /* Se mantiene en la parte superior */
+  top: 0;
   width: 100%; /* Ocupa todo el ancho de la pantalla */
-  z-index: 1000; /* Asegura que el header esté por encima del contenido */
-  margin-bottom: 20px;
+  z-index: 1000; /* Se asegura de estar sobre otros elementos */
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  box-sizing: border-box; /* Asegura que el padding se incluya dentro del tamaño total */
 }
+
 
 /* Ajuste del body para evitar que el contenido quede detrás del Header */
 body {
@@ -35,15 +37,18 @@ body {
   font-weight: 600;
 }
 
-/* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
   .header {
-    padding: 15px;
-    flex-direction: column;
-    align-items: flex-start; /* Alinear elementos al inicio en pantallas pequeñas */
+    padding: 15px; /* Reduce el padding en pantallas pequeñas */
+    flex-direction: column; /* Cambia la dirección a columna si es necesario */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    left: 0; /* Asegura que el header se alinee a la izquierda de la pantalla */
+    right: 0; /* Asegura que el header no se desborde */
+    flex-direction: row;
   }
 
-  .header h1, .header h2, .header h3 {
-    font-size: 1.5rem; /* Ajustar tamaño del texto */
+  /* Ajusta el tamaño del texto */
+  .header h1 {
+    font-size: 18px;
+    text-align: center; /* Centra el texto */
   }
-}

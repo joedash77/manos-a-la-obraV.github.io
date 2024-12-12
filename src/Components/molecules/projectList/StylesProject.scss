@@ -2,8 +2,10 @@
 .projects-list {
   list-style: none;
   padding: 0;
-  margin: 0;
-  margin-top: 150px;
+  margin: 0 auto; /* Centra horizontalmente la lista */
+  margin-top: 20px;
+  position: relative; /* Contenedor de referencia para el botón */
+  width: 600px; /* Ancho fijo del contenedor de la lista */
 }
 
 /* Cada proyecto individual */
@@ -13,9 +15,11 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
-  padding: 10px; /* Reducir el padding para hacer el contenedor más pequeño */
-  max-width: 700px; /* Definir un ancho máximo para hacer el contenedor más pequeño */
-  margin: 10px auto; /* Centrar el contenedor horizontalmente */
+  padding: 10px; /* Mantiene el espacio interno */
+  width: 100%; /* Se adapta al ancho del contenedor padre */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
 }
 
 /* Efecto hover para cada proyecto */
@@ -24,31 +28,176 @@
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo del enlace */
-.project-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+/* Contenedor del título y acciones */
+.project-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y botones */
+  align-items: center; /* Alinear verticalmente */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  margin-bottom: 10px; /* Espacio entre el título y la descripción */
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
 }
 
 /* Título del proyecto */
 .project-name {
-  font-size: 2rem; /* Aumentar el tamaño de la fuente */
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin: 0;
   color: #333;
-  text-align: center; /* Centrar el título */
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
 }
 
-/* Descripción del proyecto */
-.project-description {
-  font-size: 1.2rem; /* Aumentar el tamaño de la fuente de la descripción */
-  color: #666;
-  margin: 0;
-  text-align: center; /* Centrar la descripción */
+/* Estilo del enlace */
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1; /* Hace que el título ocupe el espacio restante */
+  max-width: 450px;
 }
 
 /* Efecto hover para el título del proyecto */
 .project-link:hover .project-name {
   color: #007bff;
+}
+
+/* Descripción del proyecto */
+.project-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  overflow: hidden; /* Si el título es muy largo, oculta el texto sobrante */
+  text-overflow: ellipsis; /* Añade "..." al texto largo */
+}
+
+/* Botones de acción */
+.project-actions {
+  display: flex;
+  gap: 8px; /* Espaciado entre los botones */
+  align-items: center; /* Alinea los botones con el título */
+}
+
+/* Estilos de los botones */
+button.edit-button, button.delete-button {
+  background-color: transparent;
+  color: #007bff;
+  padding: 6px 12px; /* Ajuste uniforme de padding para ambos botones */
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.8;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  height: 36px; /* Ajuste de altura para que ambos botones tengan la misma altura */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido dentro del botón */
+}
+
+/* Hover para el botón de editar */
+button.edit-button:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Hover para el botón de eliminar */
+button.delete-button:hover {
+  background-color: rgba(255, 77, 79, 0.2);
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+/* Efecto activo para los botones */
+button:active {
+  transform: scale(0.98); /* Ligeramente más pequeño al hacer clic */
+}
+
+.projects-wrapper {
+  margin-top: 20px; /* Da espacio al botón y al contenido */
+  padding: 10px;
+  width: 600px;
+  margin: 0 auto; /* Centra horizontalmente la lista */
+  margin-top: 50px;
+  position: relative; /* Contenedor de referencia para el botón */
+}
+
+/* Estilo para el botón de agregar tarea */
+.add-project-button {
+  margin-top: 20px;
+  position: absolute; /* Posición absoluta respecto a .projects-list */
+  top: -40px; /* Ajusta este valor según el diseño */
+  background-color: transparent; /* Fondo transparente */
+  color: #333; /* Color oscuro para el texto */
+  padding: 8px 16px; /* Espaciado más pequeño */
+  border: 1px solid #ccc; /* Borde sutil y fino */
+  border-radius: 4px; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  transition: all 0.3s ease; /* Transición suave para todos los efectos */
+  margin-bottom: 10px; /* Espacio debajo del botón */
+}
+
+.add-project-button:hover {
+  background-color: #f0f0f0; /* Color de fondo muy suave al pasar el cursor */
+  border-color: #007bff; /* Borde azul suave en hover */
+  color: #007bff; /* Color de texto azul en hover */
+}
+
+.add-project-button:focus,
+.add-project-button:active {
+  outline: none; /* Sin borde al hacer clic */
+  transform: scale(1.02); /* Ligeramente más grande al hacer clic */
+}
+
+/* Estilo específico para el contenedor de tareas y formulario */
+.tasks-layout {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Alinea los elementos a la izquierda */
+  width: 100%; /* Asegura que ocupe todo el espacio */
+}
+
+
+.create-form-a {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .projects-list {
+    width: 100%; /* El contenedor de la lista se adapta al 100% del ancho */
+  }
+
+  .project-item {
+    width: 100%; /* Asegura que los proyectos ocupen el 100% del contenedor */
+  }
+
+  .projects-wrapper {
+    width: 450px; /* Asegura que el contenedor se adapte */
+  }
+
+  .add-project-button {
+    top: -30px; /* Ajusta la posición del botón en pantallas pequeñas */
+    font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+  }
+
+  .project-name {
+    font-size: 1.4rem; /* Ajusta el tamaño del nombre del proyecto */
+  }
+
+  .project-description {
+    font-size: 1rem; /* Ajusta el tamaño de la descripción */
+    max-width: 450px;
+  }
+
+  .project-link {
+    max-width: 345px;
+  }
 }
