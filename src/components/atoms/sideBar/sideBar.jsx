@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 import BotonVolver from './BotonVolver.jsx'
 import BotonCerrar from './BotonCerrar';
+import { useFetchResource } from '../../../utils/apiCalls.js';
 
 export default function SideBar({ isOpen, toggleSidebar, level }) {
   const closeSidebar = () => {
       toggleSidebar();
   };
+
+  const userId = localStorage.getItem('userID');
+  const { resource: user, loading, error } = useFetchResource(`users/${userId}`);
 
   return (
       <div className={isOpen ? 'sidebar open' : 'sidebar'}>
@@ -33,7 +37,7 @@ export default function SideBar({ isOpen, toggleSidebar, level }) {
           {/* User Profile Link */}
           <div className="user-profile">
               <Link to="/Settings" onClick={closeSidebar}>Configuración de usuario</Link>
-              <p>Usuario: John Doe</p>
+              <p>Usuario: {user.username}</p>
           </div>
       </div>
   );

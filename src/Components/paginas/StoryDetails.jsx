@@ -7,6 +7,7 @@ import Storydetails from '../molecules/storyDetails/storyDetails'
 
 function StoryDetails() {
   const { storyId } = useParams();
+  
   const { resource:stories, error: storiesError, loading:loadingStories } = useFetchResource(`stories/${storyId}`);
   const { resource:tasks, error: tasksError, loading:loadingTasks } = useFetchResource(`stories/${storyId}/tasks`);
 
