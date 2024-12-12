@@ -21,7 +21,6 @@ const StoriesDetails = ({ stories }) => {
 
   const handleDelete = async (taskId) => {
     try{
-
       console.log(taskId);
       await deleteTask(taskId);
       refetch();
@@ -39,12 +38,6 @@ const StoriesDetails = ({ stories }) => {
         <p className="story-description">{stories.description}</p>
         <h2 className="story-subtitle">Tareas</h2>
   
-        {loading ? (
-          <p>Cargando tareas...</p>
-        ) : (
-          tasks.length <= 0 && <p className="no-tasks-message">No hay tareas agregadas</p>
-        )}
-        {error && <p>Error al cargar tareas: {error.message}</p>}
   
         {/* Contenedor principal con diseño flex */}
         <div className="tasks-layout">
@@ -52,6 +45,13 @@ const StoriesDetails = ({ stories }) => {
           <button className="add-task-button" onClick={() => setShowForm(true)}>
             Agregar Tarea
           </button>
+
+          {loading ? (
+          <p className='no-tasks-message'>Cargando tareas...</p>
+        ) : (
+          tasks.length <= 0 && <p className="no-tasks-message">No hay tareas agregadas</p>
+        )}
+        {error && <p>Error al cargar tareas: {error.message}</p>}
   
           {/* Formulario de creación de tarea */}
           {showForm && (
