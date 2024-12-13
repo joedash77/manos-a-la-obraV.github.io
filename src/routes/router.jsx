@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../components/Main";
+import Main from "../components/Main.jsx";
 import MyProjects from "../components/paginas/MyProjects";
 import Story from "../components/paginas/Story";
 import Settings from "../components/paginas/Settings";
