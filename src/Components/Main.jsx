@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import Header from './organisms/header/Header';
 import { useFetchResource } from '../utils/apiCalls';
 
-function Main() {
+export default function Main() {
   const userId = localStorage.getItem('userID');
 
   const { resource: user } = useFetchResource(`users/${userId}`);
@@ -32,5 +32,3 @@ function Main() {
     </div>
   )
 }
-
-export default Main;
